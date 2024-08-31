@@ -47,9 +47,13 @@
     
     \begin{center}\vspace{-1.5cm}
     \textbf{#2} \\[1ex]
+    \vspace{-0.5ex} 
     #4 \\[1ex]
+    \vspace{-0.5ex}
     #3 \\[1ex]
+    \vspace{-0.5ex}
     #5
     \end{center}
     \noindent\rule{\linewidth}{.6pt}
+    \vspace{1ex}
 }
