@@ -59,7 +59,7 @@ class LaTeXReportGenerator:
         label = Label(self.root, text="Select a report template:")
         label.grid(row=0, column=0, padx=5, pady=5)
 
-        options = ["Assignment", "Report"]
+        options = ["Assignment", "EECS461Lab", "Report"]
         self.selected_template = StringVar(self.root)
         self.selected_template.set(options[0])
 
@@ -101,6 +101,8 @@ class LaTeXReportGenerator:
             entry_labels = ["File Name", "Report Title", "Course", "Professor", "Author", "Student ID", "Due Date"]
         elif self.report_information["Template"] == "Assignment":
             entry_labels = ["File Name", "Report Title", "Course", "Author", "Student ID", "Due Date"]
+        elif self.report_information["Template"] == "EECS461Lab":
+            entry_labels = ["File Name", "Report Title", "Course", "Author", "Student ID", "Due Date"]
         self.report_information["Info Keys"] = {key: "" for key in entry_labels}
         self.entries = [Entry(self.root) for i in range(len(entry_labels))]
 
@@ -127,6 +129,11 @@ class LaTeXReportGenerator:
             shutil.copyfile('LaTeX Templates/Assignment/assignment.cls', os.path.join(self.path, 'assignment.cls'))
             shutil.copyfile('LaTeX Templates/Assignment/UWin_Logo.jpg', os.path.join(self.path, 'UWin_Logo.jpg'))
             shutil.copyfile('LaTeX Templates/Assignment/UMich_Logo.png', os.path.join(self.path, 'UMich_Logo.png'))
+        elif self.report_information["Template"] == "EECS461Lab":
+            path = 'LaTeX Templates/EECS461Lab/LabTemplate.tex'
+            shutil.copyfile('LaTeX Templates/EECS461Lab/assignment.cls', os.path.join(self.path, 'assignment.cls'))
+            shutil.copyfile('LaTeX Templates/EECS461Lab/UWin_Logo.jpg', os.path.join(self.path, 'UWin_Logo.jpg'))
+            shutil.copyfile('LaTeX Templates/EECS461Lab/UMich_Logo.png', os.path.join(self.path, 'UMich_Logo.png'))
 
         if path != "":
             print("Generating Report...")
